@@ -3,6 +3,8 @@ import sys
 
 from src.exception import CustomException
 from src.logger import logging
+from src.components.data_transformation import DataTransformation
+from src.components.data_transformation import DataTransformationConfig
 
 import pandas as pd
 
@@ -46,4 +48,5 @@ class DataIngestion:
             raise CustomException(e, sys)
 
 if __name__ == "__main__":
-    DataIngestion().initiate_data_ingestion()
+    train_data_path, test_data_path = DataIngestion().initiate_data_ingestion()
+    DataTransformation().initiate_data_transformation(train_path=train_data_path, test_path=test_data_path)
