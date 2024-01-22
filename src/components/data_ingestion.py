@@ -5,6 +5,7 @@ from src.exception import CustomException
 from src.logger import logging
 from src.components.data_transformation import DataTransformation
 from src.components.data_transformation import DataTransformationConfig
+from src.components.model_trainer import ModelTrainer
 
 import pandas as pd
 
@@ -47,6 +48,9 @@ class DataIngestion:
         except Exception as e:
             raise CustomException(e, sys)
 
-if __name__ == "__main__":
-    train_data_path, test_data_path = DataIngestion().initiate_data_ingestion()
-    DataTransformation().initiate_data_transformation(train_path=train_data_path, test_path=test_data_path)
+# if __name__ == "__main__":
+#     train_data_path, test_data_path = DataIngestion().initiate_data_ingestion()
+#     train_arr, test_arr, _ = DataTransformation().initiate_data_transformation(train_path=train_data_path, test_path=test_data_path)
+#     model_r2_score = ModelTrainer().initiate_model_trainer(train_array=train_arr, test_array=test_arr)
+    
+#     print("Best model r2 score: ", model_r2_score)
